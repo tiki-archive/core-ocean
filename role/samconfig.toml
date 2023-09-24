@@ -1,9 +1,9 @@
 version = 0.1
 
 [default.global.parameters]
-stack_name = "core-ocean-github"
+stack_name = "core-ocean-role"
 s3_bucket = "mytiki-sam-deploy"
-s3_prefix = "core/ocean/github"
+s3_prefix = "core/ocean/role"
 region = "us-east-2"
 
 [default.deploy.parameters]
