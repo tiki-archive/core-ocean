@@ -65,7 +65,6 @@ Resources:
               - lambda:GetFunctionUrlConfig
               - lambda:CreateEventSourceMapping
               - lambda:GetEventSourceMapping
-              - lambda:GetLayerVersion
             Resource: !Sub arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:*
           - Effect: Allow
             Action: glue:CreateDatabase
@@ -105,3 +104,6 @@ Resources:
             Condition:
               StringEquals:
                 iam:PassedToService: lambda.amazonaws.com
+          - Effect: Allow
+            Action: lambda:GetLayerVersion
+            Resource: !Sub arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:layer:core-iceberg-utils:*
