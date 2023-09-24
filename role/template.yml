@@ -95,6 +95,4 @@ Resources:
               - iam:GetRolePolicy
               - iam:PutRolePolicy
               - iam:DeleteRolePolicy
-            Resource:
-              - !Sub arn:aws:iam::${AWS::AccountId}:role/core-iceberg-catalog-Function-*
-              - !Sub arn:aws:iam::${AWS::AccountId}:role/core-iceberg-metadata-Function-*
+            Resource: !Sub arn:aws:iam::${AWS::AccountId}:role/core-ocean-sar-*
