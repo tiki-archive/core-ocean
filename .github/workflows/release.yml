@@ -36,6 +36,7 @@ jobs:
       - name: debug
         run: |
           cat infra/github/samconfig.toml
+          cat infra/github/template.yml
 
       - name: AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
