@@ -30,15 +30,11 @@ Resources:
         Version: '2012-10-17'
         Statement:
           - Effect: Allow
-            Action:
-              - cloudformation:*
-            Resource:
-              - !Sub arn:aws:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/core-ocean-aws/*
+            Action: cloudformation:*
+            Resource: !Sub arn:aws:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/core-ocean-aws/*
           - Effect: Allow
-            Action:
-              - cloudformation:ListStacks
-            Resource:
-              - *
+            Action: cloudformation:ListStacks
+            Resource: *
           - Effect: Allow
             Action:
               - serverlessrepo:ListApplicationDependencies
@@ -51,8 +47,7 @@ Resources:
               - !Sub arn:aws:serverlessrepo:us-east-2:${AWS::AccountId}:applications/core-iceberg-catalog
               - !Sub arn:aws:serverlessrepo:us-east-2:${AWS::AccountId}:applications/core-iceberg-metadata
           - Effect: Allow
-            Action:
-              - iam:PassRole
+            Action: iam:PassRole
             Resource: !Sub arn:aws:iam::${AWS::AccountId}:role/${RoleName}
             Condition:
               StringEquals:
@@ -68,12 +63,10 @@ Resources:
               - lambda:GetFunctionUrlConfig
             Resource: !Sub arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:*
           - Effect: Allow
-            Action:
-              - glue:CreateDatabase
+            Action: glue:CreateDatabase
             Resource:
               - !Sub arn:aws:glue:${AWS::Region}:${AWS::AccountId}:catalog
               - !Sub arn:aws:glue:${AWS::Region}:${AWS::AccountId}:database/*
           - Effect: Allow
-            Action:
-              - s3:CreateBucket
+            Action: s3:CreateBucket
             Resource: arn:aws:s3:::*
