@@ -5,6 +5,9 @@ Transform:
 Description: Core Ocean GitHub deployment
 
 Parameters:
+  ApplicationId:
+    Description: The serverless application id
+    Type: String
   RoleName:
     Description: Name of the IAM Role for the deployment
     Type: String
@@ -15,7 +18,7 @@ Resources:
     Type: AWS::Serverless::Application
     Properties:
       Location:
-        ApplicationId: !Sub arn:aws:serverlessrepo:us-east-2:${AWS::AccountId}:applications/core-aws-github-role
+        ApplicationId: !Ref ApplicationId
         SemanticVersion: 0.0.2
       Parameters:
         GitHubOrg: tiki

@@ -14,4 +14,6 @@ capabilities = [
     "CAPABILITY_AUTO_EXPAND"
 ]
 image_repositories = []
-parameter_overrides = []
+parameter_overrides = [
+    "ApplicationId=arn:aws:serverlessrepo:us-east-2:${AWS::AccountId}:applications/core-aws-github-role"
+]
