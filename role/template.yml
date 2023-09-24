@@ -85,4 +85,16 @@ Resources:
               - sqs:GetQueueAttributes
               - sqs:SetQueueAttributes
             Resource: !Sub arn:aws:sqs:${AWS::Region}:${AWS::AccountId}:*
-
+          - Effect: Allow
+            Action:
+              - iam:CreateRole
+              - iam:GetRole
+              - iam:UpdateRole
+              - iam:DeleteRole
+              - iam:TagRole
+              - iam:GetRolePolicy
+              - iam:PutRolePolicy
+              - iam:DeleteRolePolicy
+            Resource:
+              - !Sub arn:aws:iam::${AWS::AccountId}:role/core-iceberg-catalog-Function-*
+              - !Sub arn:aws:iam::${AWS::AccountId}:role/core-iceberg-metadata-Function-*
