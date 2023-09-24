@@ -32,6 +32,10 @@ jobs:
           sed -i 's/${AWS::AccountId}/${{ secrets.AWS_ACCOUNT_ID }}/' infra/github/samconfig.toml
           sed -i 's/${AWS::AccountId}/${{ secrets.AWS_ACCOUNT_ID }}/' infra/aws/samconfig.toml
 
+      - name: debug
+        run: |
+          cat infra/aws/samconfig.toml
+
       - name: AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
