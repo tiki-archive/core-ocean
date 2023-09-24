@@ -98,3 +98,9 @@ Resources:
               - iam:AttachRolePolicy
               - iam:DetachRolePolicy
             Resource: !Sub arn:aws:iam::${AWS::AccountId}:role/core-ocean-sar-*
+          - Effect: Allow
+            Action: iam:PassRole
+            Resource: !Sub arn:aws:iam::${AWS::AccountId}:role/core-ocean-sar-*
+            Condition:
+              StringEquals:
+                iam:PassedToService: lambda.amazonaws.com
