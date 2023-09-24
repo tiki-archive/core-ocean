@@ -33,7 +33,7 @@ Resources:
             Action:
               - cloudformation:*
             Resource:
-              - arn:aws:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/core-ocean-aws/*
+              - !Sub arn:aws:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/core-ocean-aws/*
           - Effect: Allow
             Action:
               - cloudformation:ListStacks
