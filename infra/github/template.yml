@@ -11,7 +11,7 @@ Parameters:
   RoleName:
     Description: Name of the IAM Role for the deployment
     Type: String
-    Default: "GitHubCoreOcean"
+    Default: "GitHubDeployCoreOcean"
 
 Resources:
   Role:
@@ -35,5 +35,9 @@ Resources:
         Statement:
           - Effect: Allow
             Action:
-              - serverlessrepo:*
-            Resource: "*"
+              - serverlessrepo:ListApplicationDependencies
+              - serverlessrepo:ListApplicationVersions
+              - serverlessrepo:GetApplication
+              - serverlessrepo:GetApplicationPolicy
+              - serverlessrepo:GetCloudFormationTemplate
+            Resource: !Sub "arn:aws:serverlessrepo:*:${AWS::AccountId}:applications/core"
