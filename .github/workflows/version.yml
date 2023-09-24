@@ -37,7 +37,7 @@ jobs:
 
       - name: Update SAR Version
         run: |
-          sed -i 's/SemanticVersion: .*/SemanticVersion: ${{ steps.semver.outputs.nextStrict }}/' infra/aws/template.yaml
+          sed -i 's/SemanticVersion: .*/SemanticVersion: ${{ steps.semver.outputs.nextStrict }}/' infra/aws/template.yml
 
       - name: Commit Changes
         continue-on-error: true
@@ -46,7 +46,7 @@ jobs:
         run: |
           git config --global user.email "action@github.com"
           git config --global user.name "GH Action"
-          git add infra/aws/template.yaml
+          git add infra/aws/template.yml
           git commit -m 'version bump'
           git push
 
