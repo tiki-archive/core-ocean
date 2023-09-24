@@ -34,7 +34,7 @@ jobs:
 
       - name: debug
         run: |
-          cat infra/aws/samconfig.toml
+          cat infra/github/samconfig.toml
 
       - name: AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
