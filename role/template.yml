@@ -74,6 +74,11 @@ Resources:
             Resource: arn:aws:s3:::*
           - Effect: Allow
             Action:
+              - s3:PutObject
+              - s3:GetObject
+            Resource: !Sub arn:aws:s3:::mytiki-sam-deploy/*
+          - Effect: Allow
+            Action:
               - sqs:CreateQueue
               - sqs:GetQueueAttributes
               - sqs:SetQueueAttributes
