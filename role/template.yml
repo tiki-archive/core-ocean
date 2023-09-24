@@ -95,4 +95,6 @@ Resources:
               - iam:GetRolePolicy
               - iam:PutRolePolicy
               - iam:DeleteRolePolicy
+              - iam:AttachRolePolicy
+              - iam:DetachRolePolicy
             Resource: !Sub arn:aws:iam::${AWS::AccountId}:role/core-ocean-sar-*
