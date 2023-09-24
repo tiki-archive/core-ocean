@@ -25,6 +25,8 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: SetVars
         run: |
@@ -47,12 +49,12 @@ jobs:
       - name: SAM Deploy GitHub
         run: cd infra/github && sam deploy
 
-#      - name: AWS Credentials
-#        uses: aws-actions/configure-aws-credentials@v4
-#        with:
-#          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/GitHubDeployIcebergMetadata
-#          role-session-name: ${{ env.SESSION_NAME }}
-#          aws-region: ${{ env.AWS_REGION }}
+      - name: AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/GitHubDeployCoreOcean
+          role-session-name: ${{ env.SESSION_NAME }}
+          aws-region: ${{ env.AWS_REGION }}
 #
 #      - name: SAM Publish
 #        run: cd infra/aws && sam build && sam package --output-template-file packaged.yaml && sam publish --template packaged.yaml
@@ -62,7 +64,6 @@ jobs:
         uses: ietf-tools/semver-action@v1
         with:
           token: ${{ github.token }}
-          branch: ${{ steps.getpr.outputs.branch }}
 #
 #      - name: Create Release
 #        uses: ncipollo/release-action@v1
