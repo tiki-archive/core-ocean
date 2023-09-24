@@ -27,6 +27,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: SetVars
+        run: |
+          sed -i 's/\${AWS::AccountId}/${{ secrets.AWS_ACCOUNT_ID }}/g' infra/github/samconfig.toml
+          sed -i 's/\${AWS::AccountId}/${{ secrets.AWS_ACCOUNT_ID }}/g' infra/aws/samconfig.toml
+
       - name: AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
