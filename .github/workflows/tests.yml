@@ -35,7 +35,7 @@ jobs:
           sed -i 's/${AWS::AccountId}/${{ secrets.AWS_ACCOUNT_ID }}/' template.yml
 
       - name: Validate AWS Template
-        run: cd infra/aws && sam validate --lint
+        run: sam validate --lint
 
       - name: Build AWS Template
-        run: cd infra/aws && sam build
+        run: sam build
