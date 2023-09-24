@@ -36,6 +36,7 @@ Resources:
               - serverlessrepo:GetApplication
               - serverlessrepo:GetApplicationPolicy
               - serverlessrepo:GetCloudFormationTemplate
+              - serverlessrepo:CreateCloudFormationTemplate
             Resource:
-              - !Sub "arn:aws:serverlessrepo:*:${AWS::AccountId}:applications/core-iceberg-catalog"
-              - !Sub "arn:aws:serverlessrepo:*:${AWS::AccountId}:applications/core-iceberg-metadata"
+              - !Sub arn:aws:serverlessrepo:us-east-2:${AWS::AccountId}:applications/core-iceberg-catalog
+              - !Sub arn:aws:serverlessrepo:us-east-2:${AWS::AccountId}:applications/core-iceberg-metadata

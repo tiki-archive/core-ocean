@@ -33,8 +33,8 @@ jobs:
 
       - name: SetVars
         run: |
-          sed -i 's/\${AWS::AccountId}/${{ secrets.AWS_ACCOUNT_ID }}/g' infra/github/samconfig.toml
-          sed -i 's/\${AWS::AccountId}/${{ secrets.AWS_ACCOUNT_ID }}/g' infra/aws/samconfig.toml
+          sed -i 's/${AWS::AccountId}/${{ secrets.AWS_ACCOUNT_ID }}/' infra/github/template.yml
+          sed -i 's/${AWS::AccountId}/${{ secrets.AWS_ACCOUNT_ID }}/' infra/aws/template.yml
 
       - name: Validate AWS Template
         run: cd infra/aws && sam validate --lint
