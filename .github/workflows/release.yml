@@ -49,10 +49,10 @@ jobs:
           role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/GitHubDeployCoreOcean
           role-session-name: ${{ env.SESSION_NAME }}
           aws-region: ${{ env.AWS_REGION }}
-#
-#      - name: SAM Publish
-#        run: sam build && sam package --output-template-file packaged.yaml && sam publish --template packaged.yaml
-#
+
+      - name: SAM Publish
+        run: sam build && sam package --output-template-file packaged.yaml && sam publish --template packaged.yaml
+
       - name: Get Version
         id: semver
         uses: ietf-tools/semver-action@v1
