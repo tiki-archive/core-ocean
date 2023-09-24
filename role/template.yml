@@ -34,7 +34,7 @@ Resources:
             Resource: !Sub arn:aws:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/core-ocean-aws/*
           - Effect: Allow
             Action: cloudformation:ListStacks
-            Resource: *
+            Resource: "*"
           - Effect: Allow
             Action:
               - serverlessrepo:ListApplicationDependencies
