@@ -1,7 +1,5 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Transform:
-  - AWS::LanguageExtensions
-  - AWS::Serverless-2016-10-31
+Transform: AWS::Serverless-2016-10-31
 Description: Core Ocean
 
 Resources:
@@ -10,7 +8,7 @@ Resources:
     Properties:
       Location:
         ApplicationId: arn:aws:serverlessrepo:us-east-2:${AWS::AccountId}:applications/core-iceberg-catalog
-        SemanticVersion: 0.0.2
+        SemanticVersion: 0.1.7
       Parameters:
         BucketName: mytiki-ocean-test
         DatabaseName: ocean_test
@@ -23,7 +21,7 @@ Resources:
     Properties:
       Location:
         ApplicationId: arn:aws:serverlessrepo:us-east-2:${AWS::AccountId}:applications/core-iceberg-metadata
-        SemanticVersion: 0.0.2
+        SemanticVersion: 0.1.2
       Parameters:
         BucketName: mytiki-ocean-test
         DatabaseName: ocean_test

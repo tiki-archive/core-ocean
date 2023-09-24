@@ -58,11 +58,14 @@ jobs:
 #      - name: SAM Publish
 #        run: cd infra/aws && sam build && sam package --output-template-file packaged.yaml && sam publish --template packaged.yaml
 #
-#      - name: Get Version
-#        id: version
-#        run: echo "current=$(xmlstarlet sel -t -m _:project -v _:version pom.xml)" >> $GITHUB_OUTPUT
+      - name: Get Version
+        id: semver
+        uses: ietf-tools/semver-action@v1
+        with:
+          token: ${{ github.token }}
+          branch: ${{ steps.getpr.outputs.branch }}
 #
 #      - name: Create Release
 #        uses: ncipollo/release-action@v1
 #        with:
-#          tag: ${{ steps.version.outputs.current }}
+#          tag: ${{ steps.semver.outputs.nextStrict }}
