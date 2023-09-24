@@ -10,7 +10,6 @@ env:
   SESSION_NAME: "gh_action"
   AWS_REGION: "us-east-2"
 
-# Cancel any active builds when new commits are pushed
 concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}
   cancel-in-progress: true
@@ -33,8 +32,7 @@ jobs:
 
       - name: SetVars
         run: |
-          sed -i 's/${AWS::AccountId}/${{ secrets.AWS_ACCOUNT_ID }}/' infra/github/template.yml
-          sed -i 's/${AWS::AccountId}/${{ secrets.AWS_ACCOUNT_ID }}/' infra/aws/template.yml
+          sed -i 's/${AWS::AccountId}/${{ secrets.AWS_ACCOUNT_ID }}/' template.yml
 
       - name: Validate AWS Template
         run: cd infra/aws && sam validate --lint
