@@ -43,8 +43,14 @@ jobs:
           role-session-name: ${{ env.SESSION_NAME }}
           aws-region: ${{ env.AWS_REGION }}
 
+      - name: SAM Build GitHub
+        run: cd infra/github && sam build
+
+      - name: SAM Package GitHub
+        run: cd infra/github && sam package
+
       - name: SAM Deploy GitHub
-        run: cd infra/github && sam build && sam package && sam deploy
+        run: cd infra/github && sam deploy
 
 #      - name: AWS Credentials
 #        uses: aws-actions/configure-aws-credentials@v4
