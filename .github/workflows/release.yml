@@ -51,7 +51,7 @@ jobs:
           aws-region: ${{ env.AWS_REGION }}
 
       - name: SAM Publish
-        run: sam build && sam package --output-template-file packaged.yaml && sam publish --template packaged.yaml
+        run: sam build && sam package && sam deploy
 
       - name: Get Version
         id: semver
