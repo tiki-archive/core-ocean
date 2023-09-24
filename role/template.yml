@@ -61,6 +61,8 @@ Resources:
               - lambda:ListTags
               - lambda:CreateFunctionUrlConfig
               - lambda:GetFunctionUrlConfig
+              - lambda:CreateEventSourceMapping
+              - lambda:GetEventSourceMapping
             Resource: !Sub arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:*
           - Effect: Allow
             Action: glue:CreateDatabase
@@ -70,3 +72,10 @@ Resources:
           - Effect: Allow
             Action: s3:CreateBucket
             Resource: arn:aws:s3:::*
+          - Effect: Allow
+            Action:
+              - sqs:CreateQueue
+              - sqs:GetQueueAttributes
+              - sqs:SetQueueAttributes
+            Resource: "*"
+
