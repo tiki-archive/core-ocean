@@ -56,7 +56,7 @@ Resources:
               - lambda:ListTags
               - lambda:CreateFunctionUrlConfig
               - lambda:GetFunctionUrlConfig
-            Resource: arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:*
+            Resource: !Sub arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:*
           - Effect: Allow
             Action:
               - glue:CreateDatabase
