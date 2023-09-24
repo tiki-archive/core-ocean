@@ -4,21 +4,12 @@ Transform:
   - AWS::Serverless-2016-10-31
 Description: Core Ocean
 
-Parameters:
-  CatalogApplicationId:
-    Description: The serverless application id for the catalog
-    Type: String
-  MetadataApplicationId:
-    Description: The serverless application id for the metadata
-    Type: String
-    Default: "GitHubCoreOcean"
-
 Resources:
   Catalog:
     Type: AWS::Serverless::Application
     Properties:
       Location:
-        ApplicationId: !Ref CatalogApplicationId
+        ApplicationId: arn:aws:serverlessrepo:us-east-2:${AWS::AccountId}:applications/core-iceberg-catalog
         SemanticVersion: 0.1.7
       Parameters:
         BucketName: mytiki-ocean-test
@@ -31,7 +22,7 @@ Resources:
     DependsOn: Catalog
     Properties:
       Location:
-        ApplicationId: !Ref MetadataApplicationId
+        ApplicationId: arn:aws:serverlessrepo:us-east-2:${AWS::AccountId}:applications/core-iceberg-metadata
         SemanticVersion: 0.1.2
       Parameters:
         BucketName: mytiki-ocean-test

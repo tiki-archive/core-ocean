@@ -30,8 +30,8 @@ jobs:
 
       - name: SetVars
         run: |
-          sed -i 's/${AWS::AccountId}/${{ env.AWS_ACCOUNT_ID }}/' infra/github/samconfig.toml
-          sed -i 's/${AWS::AccountId}/${{ env.AWS_ACCOUNT_ID }}/' infra/aws/samconfig.toml
+          sed -i 's/${AWS::AccountId}/${{ env.AWS_ACCOUNT_ID }}/' infra/github/template.yml
+          sed -i 's/${AWS::AccountId}/${{ env.AWS_ACCOUNT_ID }}/' infra/aws/template.yml
 
       - name: debug
         run: |

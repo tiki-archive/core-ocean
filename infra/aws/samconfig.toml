@@ -13,7 +13,4 @@ capabilities = [
     "CAPABILITY_AUTO_EXPAND"
 ]
 image_repositories = []
-parameter_overrides = [
-    "CatalogApplicationId=arn:aws:serverlessrepo:us-east-2:${AWS::AccountId}:applications/core-iceberg-catalog",
-    "MetadataApplicationId=arn:aws:serverlessrepo:us-east-2:${AWS::AccountId}:applications/core-iceberg-metadata"
-]
+parameter_overrides = []
