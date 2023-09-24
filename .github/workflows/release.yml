@@ -11,6 +11,7 @@ env:
   SESSION_NAME : "gh_action"
   AWS_REGION : "us-east-2"
   UTILS_VERSION: 0.2.1
+  AWS_ACCOUNT_ID : "12345"
 
 concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}
@@ -29,8 +30,8 @@ jobs:
 
       - name: SetVars
         run: |
-          sed -i 's/${AWS::AccountId}/${{ secrets.AWS_ACCOUNT_ID }}/' infra/github/samconfig.toml
-          sed -i 's/${AWS::AccountId}/${{ secrets.AWS_ACCOUNT_ID }}/' infra/aws/samconfig.toml
+          sed -i 's/${AWS::AccountId}/${{ env.AWS_ACCOUNT_ID }}/' infra/github/samconfig.toml
+          sed -i 's/${AWS::AccountId}/${{ env.AWS_ACCOUNT_ID }}/' infra/aws/samconfig.toml
 
       - name: debug
         run: |
