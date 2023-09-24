@@ -77,5 +77,5 @@ Resources:
               - sqs:CreateQueue
               - sqs:GetQueueAttributes
               - sqs:SetQueueAttributes
-            Resource: "*"
+            Resource: !Sub arn:aws:sqs:${AWS::Region}:${AWS::AccountId}:*
 
