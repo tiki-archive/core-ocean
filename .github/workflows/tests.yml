@@ -41,9 +41,3 @@ jobs:
 
       - name: Build AWS Template
         run: cd infra/aws && sam build
-
-      - name: Validate GitHub Template
-        run: cd infra/github && sam validate --lint
-
-      - name: Build GitHub Template
-        run: cd infra/github && sam build
