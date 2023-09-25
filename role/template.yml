@@ -63,9 +63,16 @@ Resources:
               - lambda:ListTags
               - lambda:CreateFunctionUrlConfig
               - lambda:GetFunctionUrlConfig
+              - lambda:UpdateFunctionUrlConfig
+              - lambda:DeleteFunctionUrlConfig
+            Resource: !Sub arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:*
+          - Effect: Allow
+            Action:
               - lambda:CreateEventSourceMapping
               - lambda:GetEventSourceMapping
-            Resource: !Sub arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:*
+              - lambda:DeleteEventSourceMapping
+              - lambda:UpdateEventSourceMapping
+            Resource: !Sub arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:event-source-mapping:*
           - Effect: Allow
             Action: glue:CreateDatabase
             Resource:
@@ -79,12 +86,15 @@ Resources:
               - s3:PutObject
               - s3:GetObject
               - s3:GetObjectVersion
-            Resource: !Sub arn:aws:s3:::mytiki-sam-deploy/*
+            Resource:
+              - arn:aws:s3:::mytiki-sam-deploy/*
+              - arn:aws:s3:::awsserverlessrepo-changesets-*
           - Effect: Allow
             Action:
               - sqs:CreateQueue
               - sqs:GetQueueAttributes
               - sqs:SetQueueAttributes
+              - sqs:TagQueue
             Resource: !Sub arn:aws:sqs:${AWS::Region}:${AWS::AccountId}:*
           - Effect: Allow
             Action:
