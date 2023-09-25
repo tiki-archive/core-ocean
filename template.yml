@@ -1,0 +1,31 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Core Ocean
+
+Resources:
+  Catalog:
+    Type: AWS::Serverless::Application
+    Properties:
+      Location:
+        ApplicationId: arn:aws:serverlessrepo:us-east-2:${AWS::AccountId}:applications/core-iceberg-catalog
+        SemanticVersion: 0.1.8
+      Parameters:
+        BucketName: mytiki-ocean-test
+        DatabaseName: ocean_test
+        UtilsName: core-iceberg-utils
+        UtilsVersion: 7
+
+  Metadata:
+    Type: AWS::Serverless::Application
+    DependsOn: Catalog
+    Properties:
+      Location:
+        ApplicationId: arn:aws:serverlessrepo:us-east-2:${AWS::AccountId}:applications/core-iceberg-metadata
+        SemanticVersion: 0.1.4
+      Parameters:
+        BucketName: mytiki-ocean-test
+        DatabaseName: ocean_test
+        UtilsName: core-iceberg-utils
+        UtilsVersion: 7
+        QueueName: ocean-metadata
+
