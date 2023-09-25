@@ -72,7 +72,7 @@ Resources:
               - lambda:GetEventSourceMapping
               - lambda:DeleteEventSourceMapping
               - lambda:UpdateEventSourceMapping
-            Resource: !Sub arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:event-source-mapping:*
+            Resource: "*"
           - Effect: Allow
             Action: glue:CreateDatabase
             Resource:
