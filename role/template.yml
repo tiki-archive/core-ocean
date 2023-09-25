@@ -78,6 +78,7 @@ Resources:
             Action:
               - s3:PutObject
               - s3:GetObject
+              - s3:GetObjectVersion
             Resource: !Sub arn:aws:s3:::mytiki-sam-deploy/*
           - Effect: Allow
             Action:
