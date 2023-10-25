@@ -10,8 +10,8 @@ Resources:
         ApplicationId: arn:aws:serverlessrepo:us-east-2:${AWS::AccountId}:applications/core-iceberg-catalog
         SemanticVersion: 0.1.8
       Parameters:
-        BucketName: mytiki-ocean-test
-        DatabaseName: ocean_test
+        BucketName: mytiki-ocean
+        DatabaseName: ocean
         UtilsName: core-iceberg-utils
         UtilsVersion: 7
 
@@ -23,8 +23,8 @@ Resources:
         ApplicationId: arn:aws:serverlessrepo:us-east-2:${AWS::AccountId}:applications/core-iceberg-metadata
         SemanticVersion: 0.1.4
       Parameters:
-        BucketName: mytiki-ocean-test
-        DatabaseName: ocean_test
+        BucketName: mytiki-ocean
+        DatabaseName: ocean
         UtilsName: core-iceberg-utils
         UtilsVersion: 7
         QueueName: ocean-metadata
