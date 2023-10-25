@@ -114,4 +114,6 @@ Resources:
                 iam:PassedToService: lambda.amazonaws.com
           - Effect: Allow
             Action: lambda:GetLayerVersion
-            Resource: !Sub arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:layer:core-iceberg-utils:*
+            Resource:
+              - !Sub arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:layer:core-iceberg-utils:*
+              - !Sub arn:aws:lambda:${AWS::Region}:901920570463:layer:aws-otel-java-wrapper-arm64-ver-1-30-0:*
