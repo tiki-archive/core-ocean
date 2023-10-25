@@ -57,6 +57,7 @@ Resources:
           - Effect: Allow
             Action:
               - lambda:CreateFunction
+              - lambda:UpdateFunction
               - lambda:TagResource
               - lambda:GetFunction
               - lambda:UpdateFunctionCode
