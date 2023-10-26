@@ -57,13 +57,14 @@ Resources:
           - Effect: Allow
             Action:
               - lambda:CreateFunction
-              - lambda:UpdateFunction
               - lambda:TagResource
               - lambda:GetFunction
               - lambda:UpdateFunctionCode
               - lambda:ListTags
               - lambda:CreateFunctionUrlConfig
               - lambda:GetFunctionUrlConfig
+              - lambda:UpdateFunctionUrlConfig
+              - lambda:UpdateFunctionConfiguration
             Resource: !Sub arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:*
           - Effect: Allow
             Action:
