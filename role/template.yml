@@ -57,13 +57,14 @@ Resources:
           - Effect: Allow
             Action:
               - lambda:CreateFunction
-              - lambda:UpdateFunction
               - lambda:TagResource
               - lambda:GetFunction
               - lambda:UpdateFunctionCode
               - lambda:ListTags
               - lambda:CreateFunctionUrlConfig
               - lambda:GetFunctionUrlConfig
+              - lambda:UpdateFunctionUrlConfig
+              - lambda:UpdateFunctionConfiguration
             Resource: !Sub arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:*
           - Effect: Allow
             Action:
@@ -116,4 +117,4 @@ Resources:
             Action: lambda:GetLayerVersion
             Resource:
               - !Sub arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:layer:core-iceberg-utils:*
-              - !Sub arn:aws:lambda:${AWS::Region}:901920570463:layer:aws-otel-java-wrapper-x86_64-ver-1-30-0:*
+              - !Sub arn:aws:lambda:${AWS::Region}:901920570463:layer:aws-otel-java-wrapper-*

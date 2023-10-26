@@ -8,7 +8,7 @@ Resources:
     Properties:
       Location:
         ApplicationId: arn:aws:serverlessrepo:us-east-2:${AWS::AccountId}:applications/core-iceberg-catalog
-        SemanticVersion: 0.1.10
+        SemanticVersion: 0.1.11
       Parameters:
         BucketName: mytiki-ocean
         DatabaseName: ocean
@@ -21,7 +21,7 @@ Resources:
     Properties:
       Location:
         ApplicationId: arn:aws:serverlessrepo:us-east-2:${AWS::AccountId}:applications/core-iceberg-metadata
-        SemanticVersion: 0.1.6
+        SemanticVersion: 0.1.7
       Parameters:
         BucketName: mytiki-ocean
         DatabaseName: ocean
